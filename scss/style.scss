@@ -1,5 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400;1,700;1,800&display=swap');
+
 *, *::after, *::before, body, html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Open Sans";
+  color: #455A64;
+  line-height: 1;
+}
+
+body{
+  height: 200vh;
+}
+
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+  padding: 50px;
+
+  & .modal-bold {
+    font-weight: 800;
+  }
+
+  & .modal-blue {
+    color: #1ab1e5;
+  }
+
+  & .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #efefef;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 3px 6px 2px 6px;
+    border: 1px solid rgb(133,133,133);
+    border-radius: 2px;
+    cursor: default;
+
+    &:hover {
+      background-color: darken(#efefef, 5%)
+    }
+  }
+
+  &>.support-modal {
+    position: relative;
+    width: 650px;
+    max-height: 100%;
+    background-color: white;
+    border-radius: 16px;
+    overflow: auto;
+    padding: 10px;
+    text-align: center;
+
+    & input::-webkit-outer-spin-button,
+    & input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    & input[type=number] {
+      -moz-appearance:textfield;
+    }
+
+    &>h2 {
+      font-size: 50px;
+      font-family: "Open Sans Condensed";
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+
+    &>p {
+      line-height: 28px;
+      font-size: 15px;
+      font-weight: 400;
+      margin: 10px 0;
+    }
+
+    &>.support-posters {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      margin: 20px;
+
+      &>div {
+        margin: 10px 14px;
+        padding: 10px 20px;
+
+        &>i{
+          display: block;
+          margin: 0 auto;
+          margin-bottom: 10px;
+          font-size: 115px;
+        }
+
+        &>span {
+          font-family: sans-serif, Arial;
+          font-weight: 700;
+        }
+      }
+    }
+
+    &>.support-choice {
+
+      #generationForm {
+        padding-top: 30px;
+      }
+
+      &>#scanningForm {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+
+        &>p {
+          font-size: 15px;
+          margin: 10px 0 20px 0;
+        }
+
+        &>input {
+          width: 300px;
+          height: 58px;
+          padding: 13px 32px;
+          margin: 0 auto;
+          margin-bottom: 10px;
+          border-radius: 14px;
+          border: 1px solid rgb(69, 90, 100);
+          text-align: center;
+          font-weight: 700;
+          font-size: 19px;
+        }
+
+        &>button {
+          margin: 0 auto;
+        }
+      }
+
+      & button {
+        background-color: #1ab1e5;
+        color: white;
+        border: none;
+        border-radius: 16px;
+        padding: 20px 0;
+        width: 190px;
+        font-weight: 700;
+        font-size: 18px;
+        transition: all 0.1s ease-out;
+        cursor: pointer;
+
+        &:hover {
+          background-color: white;
+          color: #1ab1e5;
+        }
+      }
+    }
+
+    &>.support-footer {
+      margin-top: 55px;
+
+      &>div {
+        display: inline-block;
+        padding: 0 10px;
+        font-size: 15px;
+
+        &>* {
+          display: inline-block;
+        }
+
+        &>i {
+          padding-right: 5px;
+        }
+      }
+    }
+  }
+
+  &>.venue-modal {
+    display: none;
+  }
 }

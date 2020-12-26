@@ -4,11 +4,107 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/66f42b2d88.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Modals</title>
   </head>
   <body>
-    <button>Support</button>
-    <button>Get Venue Poster</button>
-    <script src="main.js"></script>
+    <div id="modal" class="modal">
+      <div id="supportModal" class="support-modal">
+        <span class="close">X</span>
+        <h2>Support</h2>
+        <p>
+          Below is the current health of the national
+          <span class="modal-bold"
+            >COVID<span class="modal-blue">ALERT</span></span
+          >
+          Network.
+        </p>
+        <p>
+          However, if you have a local issue, please report by clicking an icon
+          below.
+        </p>
+        <div class="support-posters">
+          <div id="generationTrigger">
+            <i class="fa fa-check-circle" style="color: #68cf74"></i>
+            <span>Poster Generation</span>
+          </div>
+          <div id="scanningTrigger">
+            <i class="fa fa-check-circle" style="color: #68cf74"></i>
+            <span>Poster Scanning</span>
+          </div>
+        </div>
+        <div class="support-choice">
+          <form id="generationForm" class="support-choice-generation" action="">
+            <button>Alert Team</button>
+          </form>
+          <form id="scanningForm" class="support-choice-scanning" action="">
+            <p>Enter the 15 digit Branch ID, excluding spaces.</p>
+            <input type="number" placeholder="Branch ID" max="99999" min="0" />
+            <input type="number" placeholder="Branch ID" max="99999" min="0" />
+            <input type="number" placeholder="Branch ID" max="99999" min="0" />
+            <button>Alert Team</button>
+          </form>
+        </div>
+        <div class="support-footer">
+          <div>
+            <i class="fa fa-check-circle" style="color: #68cf74"></i
+            ><span>Online</span>
+          </div>
+          <div>
+            <i class="fa fa-exclamation-circle" style="color: #e3b013"></i
+            ><span>Slow</span>
+          </div>
+          <div>
+            <i class="fa fa-times-circle" style="color: #e33413"></i
+            ><span>Offline</span>
+          </div>
+        </div>
+      </div>
+      <div id="venueModal" class="venue-modal"></div>
+    </div>
+    <button id="support">Support</button>
+    <button id="venue">Get Venue Poster</button>
+    <script>
+      const modal = document.getElementById("modal");
+
+      const support = document.getElementById("support");
+      const supportModal = document.getElementById("supportModal");
+      const scanningForm = document.getElementById("scanningForm");
+      const scanningTrigger = document.getElementById("scanningTrigger");
+      const generationForm = document.getElementById("generationForm");
+      const generationTrigger = document.getElementById("generationTrigger");
+      const venue = document.getElementById("venue");
+      const venueModal = document.getElementById("venueModal");
+
+      const modalClose = document.querySelectorAll(".close");
+
+      for (let i = 0; i < modalClose.length; i++) {
+        modalClose[i].addEventListener("click", function () {
+          modal.style.display = "none";
+          supportModal.style.display = "none";
+          venueModal.style.display = "none";
+        });
+      }
+
+      support.addEventListener("click", function () {
+        modal.style.display = "flex";
+        supportModal.style.display = "block";
+      });
+      scanningTrigger.addEventListener("click", function () {
+        scanningForm.style.display = "flex";
+        generationForm.style.display = "none";
+      });
+      generationTrigger.addEventListener("click", function () {
+        scanningForm.style.display = "none";
+        generationForm.style.display = "block";
+      });
+
+      venue.addEventListener("click", function () {
+        venueModal.style.display = "block";
+      });
+    </script>
   </body>
 </html>
