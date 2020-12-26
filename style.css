@@ -5,12 +5,12 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "Open Sans";
-  color: #455A64;
   line-height: 1;
 }
 
 body {
   height: 200vh;
+  color: #455A64;
 }
 
 .modal {
@@ -108,16 +108,16 @@ body {
   padding: 10px 20px;
 }
 
-.modal > .support-modal > .support-posters > div > i {
+.modal > .support-modal > .support-posters > div > span {
+  font-family: sans-serif, Arial;
+  font-weight: 700;
+}
+
+.modal > .support-modal > .support-posters > div > .fa-check-circle {
   display: block;
   margin: 0 auto;
   margin-bottom: 10px;
   font-size: 115px;
-}
-
-.modal > .support-modal > .support-posters > div > span {
-  font-family: sans-serif, Arial;
-  font-weight: 700;
 }
 
 .modal > .support-modal > .support-choice #generationForm {
@@ -177,21 +177,38 @@ body {
 }
 
 .modal > .support-modal > .support-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 55px;
 }
 
 .modal > .support-modal > .support-footer > div {
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 0 10px;
   font-size: 15px;
 }
 
 .modal > .support-modal > .support-footer > div > * {
   display: inline-block;
+  font-size: 19px;
 }
 
-.modal > .support-modal > .support-footer > div > i {
-  padding-right: 5px;
+.modal > .support-modal > .support-footer > div > span {
+  font-size: 15px;
 }
 
 .modal > .venue-modal {
