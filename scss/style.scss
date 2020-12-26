@@ -87,6 +87,7 @@ body{
       display: flex;
       justify-content: center;
       align-content: center;
+      flex-wrap: wrap;
       margin: 20px;
 
       &>div {
@@ -124,6 +125,7 @@ body{
 
         &>input {
           width: 300px;
+          max-width: 100%;
           height: 58px;
           padding: 13px 32px;
           margin: 0 auto;
