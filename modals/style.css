@@ -1,0 +1,367 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400;1,700;1,800&display=swap");
+*, body, html {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Open Sans";
+  line-height: 1;
+}
+
+body {
+  color: #455A64;
+}
+
+/* CUSTOM SELECT CODE SNIPPET */
+/* The container must be positioned relative: */
+.custom-select {
+  position: relative;
+}
+
+.custom-select > * {
+  font-size: 15px;
+  font-family: Arial !important;
+}
+
+.custom-select select {
+  display: none;
+  /*hide original SELECT element: */
+}
+
+.select-selected {
+  background-color: #455a64;
+  height: 44px;
+  border-radius: 8px;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 18px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active {
+  background-color: #1ab1e5;
+  border-radius: 8px 8px 0 0;
+}
+
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 11px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div, .select-selected {
+  color: #ffffff;
+  padding: 13px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  background-color: #455A64;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  top: 100%;
+  background-color: #18c5ff;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+.select-items > div {
+  background-color: #18c5ff;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*START*/
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 50px;
+}
+
+.modal .modal-bold {
+  font-weight: 800;
+}
+
+.modal .modal-blue {
+  color: #1ab1e5;
+}
+
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #efefef;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 3px 6px 2px 6px;
+  border: 1px solid #858585;
+  border-radius: 2px;
+  cursor: default;
+}
+
+.modal .close:hover {
+  background-color: #e2e2e2;
+}
+
+.modal > .support-modal, .modal > .venue-modal {
+  display: none;
+  position: relative;
+  width: 650px;
+  max-height: 100%;
+  background-color: white;
+  border-radius: 16px;
+  overflow: auto;
+  padding: 10px;
+}
+
+.modal > .support-modal > h2, .modal > .venue-modal > h2 {
+  font-size: 50px;
+  font-family: "Open Sans Condensed";
+}
+
+.modal > .support-modal {
+  display: none;
+  text-align: center;
+}
+
+.modal > .support-modal input::-webkit-outer-spin-button,
+.modal > .support-modal input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.modal > .support-modal input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.modal > .support-modal > h2 {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.modal > .support-modal > p {
+  line-height: 28px;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+.modal > .support-modal > .support-posters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  margin: 20px;
+}
+
+.modal > .support-modal > .support-posters > div {
+  margin: 10px 14px;
+  padding: 10px 20px;
+}
+
+.modal > .support-modal > .support-posters > div > span {
+  font-family: sans-serif, Arial;
+  font-weight: 700;
+}
+
+.modal > .support-modal > .support-posters > div > .fa-check-circle {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  font-size: 115px;
+}
+
+.modal > .support-modal > .support-choice > form {
+  display: none;
+}
+
+.modal > .support-modal > .support-choice > #generationForm {
+  padding-top: 30px;
+}
+
+.modal > .support-modal > .support-choice > #scanningForm {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modal > .support-modal > .support-choice > #scanningForm > p {
+  font-size: 15px;
+  margin: 10px 0 20px 0;
+}
+
+.modal > .support-modal > .support-choice > #scanningForm > input {
+  width: 300px;
+  max-width: 100%;
+  height: 58px;
+  padding: 13px 32px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border-radius: 14px;
+  border: 1px solid #455a64;
+  text-align: center;
+  font-weight: 700;
+  font-size: 19px;
+}
+
+.modal > .support-modal > .support-choice > #scanningForm > button {
+  margin: 0 auto;
+}
+
+.modal > .support-modal > .support-choice button {
+  background-color: #1ab1e5;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 20px 0;
+  width: 190px;
+  font-weight: 700;
+  font-size: 18px;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+  cursor: pointer;
+}
+
+.modal > .support-modal > .support-choice button:hover {
+  background-color: white;
+  color: #1ab1e5;
+}
+
+.modal > .support-modal > .support-choice button:disabled {
+  background-color: #eeeeee;
+  color: #455A64;
+}
+
+.modal > .support-modal > .support-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 55px;
+}
+
+.modal > .support-modal > .support-footer > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
+  font-size: 15px;
+}
+
+.modal > .support-modal > .support-footer > div > * {
+  display: inline-block;
+  font-size: 19px;
+}
+
+.modal > .support-modal > .support-footer > div > span {
+  font-size: 15px;
+}
+
+.modal > .venue-modal > h2 {
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+.modal > .venue-modal > input {
+  width: 100%;
+  height: 48px;
+  padding: 0 12px;
+  margin: 0 auto;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #455a64;
+  color: #455a64;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal > .venue-modal > input:disabled {
+  background-color: #eeeeee;
+}
+
+.modal > .venue-modal > button {
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 30px;
+  height: 45px;
+  border: 1px solid #455a64;
+  color: #455a64;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.modal > .venue-modal > button:disabled {
+  background-color: white;
+}
+
+@media only screen and (max-width: 500px) {
+  .modal {
+    padding: 20px;
+  }
+  .modal .support-posters .fa-check-circle {
+    font-size: 80px !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .venue-modal > h2 {
+    font-size: 35px !important;
+    padding: 8px 0 5px 0;
+  }
+  .venue-modal > input {
+    font-size: 14px !important;
+    height: 29px !important;
+  }
+  .venue-modal > button {
+    font-size: 14px !important;
+  }
+}
