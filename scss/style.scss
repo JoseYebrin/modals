@@ -18,7 +18,7 @@ body{
   width: 100vw;
   height: 100vh;
   background-color: rgba(0,0,0,0.3);
-  display: flex;
+  display: none;
   justify-content: center;
   align-content: center;
   align-items: flex-start;
@@ -50,6 +50,7 @@ body{
   }
 
   &>.support-modal {
+    display: none;
     position: relative;
     width: 650px;
     max-height: 100%;
