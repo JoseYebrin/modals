@@ -205,12 +205,15 @@ body {
   font-size: 115px;
 }
 
-.modal > .support-modal > .support-choice #generationForm {
+.modal > .support-modal > .support-choice > form {
+  display: none;
+}
+
+.modal > .support-modal > .support-choice > #generationForm {
   padding-top: 30px;
 }
 
 .modal > .support-modal > .support-choice > #scanningForm {
-  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -260,6 +263,11 @@ body {
 .modal > .support-modal > .support-choice button:hover {
   background-color: white;
   color: #1ab1e5;
+}
+
+.modal > .support-modal > .support-choice button:disabled {
+  background-color: #eeeeee;
+  color: #455A64;
 }
 
 .modal > .support-modal > .support-footer {

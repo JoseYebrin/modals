@@ -51,7 +51,7 @@
               minlength="15"
               maxlength="15"
             />
-            <button>Alert Team</button>
+            <button disabled>Alert Team</button>
           </form>
         </div>
         <div class="support-footer">
@@ -144,6 +144,8 @@
           modal.style.display = "none";
           supportModal.style.display = "none";
           venueModal.style.display = "none";
+          scanningForm.style.display = "none";
+          generationForm.style.display = "none";
         });
       }
 
@@ -162,8 +164,15 @@
       });
 
       branchInput.addEventListener("keydown", function (e) {
-        if (!parseInt(e.key) && e.key != "Backspace") {
+        if (!parseInt(e.key) && e.key != "Backspace" && e.key != 0) {
           e.preventDefault();
+        }
+      });
+      branchInput.addEventListener("keyup", function () {
+        if (this.value.length === 15) {
+          this.nextElementSibling.disabled = false;
+        } else {
+          this.nextElementSibling.disabled = true;
         }
       });
 
