@@ -190,12 +190,14 @@ body{
 
     &>.support-choice {
 
-      #generationForm {
+      &>form {
+        display: none;
+      }
+      &>#generationForm {
         padding-top: 30px;
       }
 
       &>#scanningForm {
-        display: none;
         flex-direction: column;
         justify-content: center;
 
@@ -238,6 +240,11 @@ body{
         &:hover {
           background-color: white;
           color: #1ab1e5;
+        }
+
+        &:disabled {
+          background-color: #eeeeee;
+          color: #455A64;
         }
       }
     }
